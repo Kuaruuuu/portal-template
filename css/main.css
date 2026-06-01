@@ -21,6 +21,10 @@ h1 {
     line-height: 2.5em;
 }
 
+h1.heading{
+    font-family:Quicksand;
+}
+
 main.wrapper {
     background-color: white;
     overflow: auto;

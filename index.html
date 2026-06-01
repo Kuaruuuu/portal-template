@@ -6,14 +6,15 @@
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/nav.css">
-  <link rel="stylesheet" href="css/forms.css">
+  <link rel="stylesheet" href="css/projects.css">
+
  </head>
  <body>
      <header>
-     <h1>YOUR NAME HERE</h1>
+     <h1 class="heading">YOUR NAME HERE</h1>
         <nav class="topnav" id="myTopnav">
-            <a href="index.html">Bio</a>
-            <a href="#" target="_blank">Work</a>
+            <a href="index.html" class="active">Bio</a>
+            <a href="projects.html">Projects</a>
             <a href="#" target="_blank">GitHub</a>
             <a href="#" target="_blank">LinkedIn</a>
             <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
@@ -46,28 +47,6 @@
      </p>
     </footer>
   </main>
-     
-  <!-- Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon -->
-    <script>
-    //https://tinyurl.com/dynamic-html-css-checkers
-    document.getElementById("html-checker").setAttribute("href","https://validator.w3.org/nu/?doc=" + location.href);
-      
-    document.getElementById("css-checker").setAttribute("href","https://jigsaw.w3.org/css-validator/validator?uri=" + location.href); 
-     
-     //set current year in span with id of this-year
-     let d = new Date(); let thisYear = d.getFullYear();
-     document.getElementById("this-year").innerHTML = thisYear;
-    
-    //manages mobile nav 
-    function myFunction() {
-        var x = document.getElementById("myTopnav");
-        if (x.className === "topnav") {
-            x.className += " responsive";
-        } else {
-            x.className = "topnav";
-        }
-    }   
- </script>
-     
- </body>
+  <script src="main.js" defer></script>
+  </body>
 </html>
