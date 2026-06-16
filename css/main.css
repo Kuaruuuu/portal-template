@@ -1,55 +1,82 @@
-/* Global rules */
+/* ============================================================
+   main.css — Hazel Herger's Portal
+   Design language: Warm & Approachable / Creative Craftsperson
+   
+   COLOR TOKENS (for easy reference & future edits):
+     --clr-bg-page:      #FAF8F5  (warm off-white page background)
+     --clr-bg-surface:   #FFFFFF  (card / wrapper surfaces)
+     --clr-bg-muted:     #F2EDE8  (subtle tinted area, e.g. h1 strip)
+     --clr-text-primary: #2E2A25  (warm charcoal, replaces cold #333)
+     --clr-text-muted:   #7C6E62  (warm taupe for secondary text)
+     --clr-accent-coral: #C1622A  (terracotta — primary accent)
+     --clr-accent-teal:  #2E7B6F  (warm teal — secondary accent)
+     --clr-border:       #E8E2D9  (warm-tinted border, replaces cold #e2e8f0)
+   ============================================================ */
+
+/* ---- Global rules ---- */
 
 html {
-    background-color: whitesmoke;
+    background-color: #FAF8F5;    /* warm off-white: replaces cold "whitesmoke" */
     font-size: 0.95em;
 }
 
 body {
     font-family: system-ui, -apple-system, sans-serif;
     line-height: 1.6;
-    background-color: #f9f9f9;
-    color: #333;
+    background-color: #FAF8F5;    /* consistent warm off-white */
+    color: #2E2A25;               /* warm charcoal: replaces cold #333 */
     margin: 0 auto;
     padding: 20px;
-    max-width:1200px;
-  }
+    max-width: 1200px;
+}
 
+/* Text selection: coral highlight keeps warmth, replaces jarring yellow */
 ::selection {
-    color: #000; 
-    background: #ff0;
+    color: #FFFFFF;
+    background: #C1622A;          /* terracotta selection highlight */
 }
 
 h1 {
     font-weight: normal;
     margin: auto;
-    background: #fff;
+    background: #F2EDE8;          /* warm tinted strip: replaces flat white */
     line-height: 2.5em;
+    border-bottom: 2px solid #C1622A; /* terracotta underline — signature accent */
 }
 
 main.wrapper {
-    background-color: white;
+    background-color: #FFFFFF;
     overflow: auto;
+    border: 1px solid #E8E2D9;   /* warm border: replaces no border */
 }
 
 p {
-    margin: 1em; /* Top Right Bottom Left (TRBL) */
+    margin: 1em;
 }
 
-h2,h3 {
+h2, h3 {
     font-weight: normal;
     margin-left: 1em;
     line-height: 1em;
+    color: #2E2A25;               /* ensure warm charcoal on all headings */
 }
 
+/* Subheader accent: a small terracotta left-border signals section starts */
+h2.subheader {
+    border-left: 3px solid #C1622A;
+    padding-left: 0.5em;
+    margin-left: 1em;
+}
+
+/* Links: warm teal replaces cold darkcyan */
 a {
-    color:darkcyan;
+    color: #2E7B6F;
     text-decoration: none;
 }
 
 a:hover {
-    color: whitesmoke;
-    background-color: darkcyan;
+    color: #FFFFFF;
+    background-color: #2E7B6F;   /* warm teal hover: replaces cold darkcyan */
     text-decoration: none;
 }
 
@@ -57,171 +84,196 @@ footer {
     clear: both;
     text-align: center;
     padding: 1em;
+    color: #7C6E62;               /* muted warm taupe for footer text */
+    border-top: 1px solid #E8E2D9;
 }
 
-/* end global rules */
+footer a {
+    color: #C1622A;               /* terracotta footer links */
+}
 
-/* Responsive rules */
+footer a:hover {
+    color: #FFFFFF;
+    background-color: #C1622A;
+}
+
+/* ---- end global rules ---- */
+
+
+/* ---- Responsive rules ---- */
 
 /* DESKTOP */
-@media all and (min-width:1200px) {
+@media all and (min-width: 1200px) {
     main.wrapper {
         width: 80%;
         margin: auto;
     }
-    
+
     h1 {
         width: 79%;
         padding-left: 1%;
     }
-    
+
     picture.profile img {
         width: 50%;
         float: left;
         margin-right: 2em;
     }
-    
 }
 
 /* TABLET */
-@media all and (min-width:501px) and (max-width:1199px) {
+@media all and (min-width: 501px) and (max-width: 1199px) {
     main.wrapper {
         width: 90%;
         margin: auto;
     }
-    
+
     h1 {
         width: 89%;
         padding-left: 1%;
     }
-    
+
     picture.profile img {
         width: 50%;
         float: right;
         margin-left: 1em;
     }
-
 }
 
 /* PHONE */
-@media all and (max-width:500px) {
+@media all and (max-width: 500px) {
     main.wrapper {
         width: 100%;
     }
-    
+
     h1 {
         width: 99%;
         padding-left: 1%;
     }
-    
+
     picture.profile img {
         width: 100%;
     }
-    
 }
 
-/* start project container rules */
-  
+
+/* ---- Project container rules ---- */
+
 .projects-container {
-    max-width: 900px;  /* Keeps things readable on desktop */
+    max-width: 900px;
     margin: 0 auto;
     padding: 20px;
-  }
-  
-  /* The Main Project Card Wrapper */
-  .project-card {
+}
+
+/* Project card: warm border + background, no cold grays */
+.project-card {
     display: flex;
-    flex-direction: row; /* Default layout: Image left, text right */
+    flex-direction: row;
     align-items: center;
     gap: 30px;
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 12px; /* Smooth rounded corners */
+    background: #FFFFFF;
+    border: 1px solid #E8E2D9;    /* warm-tinted border: replaces cold #e2e8f0 */
+    border-radius: 12px;
     padding: 24px;
     margin-bottom: 30px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-    transition: transform 0.2s ease;
-  }
-  
-  .project-card:hover {
-    transform: translateY(-2px); /* Subtle interaction cue */
-  }
-  
-  /* The Magic Mirror: Automatically alternate left/right layout */
-  .project-card:nth-child(even) {
-    flex-direction: row-reverse; /* Flips the order for every second card */
-  }
-  
-  /* Image Control Group */
-  .project-image {
-    flex-shrink: 0; /* Prevents text from squeezing the image container */
-  }
-  
-  .project-image img {
+    box-shadow: 0 4px 6px -1px rgba(46, 42, 37, 0.06); /* warm-tinted shadow */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border-left: 3px solid #C1622A; /* terracotta left-accent — the signature */
+}
+
+.project-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px -4px rgba(46, 42, 37, 0.1);
+}
+
+/* Alternating card layout: even cards get teal accent instead of coral */
+.project-card:nth-child(even) {
+    flex-direction: row-reverse;
+    border-left: none;
+    border-right: 3px solid #2E7B6F; /* warm teal on even cards */
+}
+
+.project-image {
+    flex-shrink: 0;
+}
+
+.project-image img {
     width: 150px;
     height: 150px;
-    object-fit: cover; /* Forces screenshots to crop nicely instead of squishing */
+    object-fit: cover;
     border-radius: 8px;
-    border: 1px solid #cbd5e1;
-  }
-  
-  /* Content & CTA Link Elements */
-  .project-content {
+    border: 1px solid #E8E2D9;    /* warm border: replaces cold #cbd5e1 */
+}
+
+.project-content {
     flex-grow: 1;
-  }
-  
-  .project-content h2 {
+}
+
+.project-content h2 {
     margin-top: 0;
-    color: #1e293b;
-  }
-  
-  .project-links {
+    color: #2E2A25;               /* warm charcoal: replaces cold #1e293b */
+}
+
+.project-links {
     margin-top: 20px;
     display: flex;
     gap: 12px;
-  }
-  
-  /* Flexible, clean Button styles */
-  .btn {
+}
+
+/* Buttons */
+.btn {
     display: inline-block;
     text-decoration: none;
     padding: 8px 16px;
     border-radius: 6px;
     font-size: 0.9rem;
     font-weight: 500;
-    transition: background-color 0.2s;
-  }
-  
-  .demo-btn {
-    background-color: darkcyan;
-    color: #ffffff;
-  }
-  
-  .demo-btn:hover {
-    background-color: rgb(95, 95, 95);
-  }
-  
-  .repo-btn {
-    background-color: #f1f5f9;
-    color: #334155;
-    border: 1px solid #cbd5e1;
-  }
-  
-  .repo-btn:hover {
-    background-color: rgb(95, 95, 95);
-  }
-  
-  /* Responsive Overrides: If screen is small, stack everything vertically */
-  @media (max-width: 650px) {
-    .project-card, 
-    .project-card:nth-child(even) {
-      flex-direction: column;
-      text-align: center;
-    }
-    
-    .project-links {
-      justify-content: center;
-    }
-  }
+    transition: background-color 0.2s, color 0.2s;
+}
 
-/* end project container rules */
+/* Primary CTA: terracotta — replaces cold darkcyan */
+.demo-btn {
+    background-color: #C1622A;
+    color: #FFFFFF;
+}
+
+.demo-btn:hover {
+    background-color: #9E4E1F;   /* darker terracotta on hover */
+    color: #FFFFFF;
+    background-color: #9E4E1F;
+}
+
+/* Secondary: warm off-white with warm border — replaces cold #f1f5f9 */
+.repo-btn {
+    background-color: #F2EDE8;
+    color: #2E2A25;
+    border: 1px solid #E8E2D9;
+}
+
+.repo-btn:hover {
+    background-color: #2E7B6F;   /* teal on hover for contrast */
+    color: #FFFFFF;
+    border-color: #2E7B6F;
+}
+
+/* Mobile: stack cards vertically */
+@media (max-width: 650px) {
+    .project-card,
+    .project-card:nth-child(even) {
+        flex-direction: column;
+        text-align: center;
+        border-left: none;
+        border-right: none;
+        border-top: 3px solid #C1622A;  /* top accent on mobile */
+    }
+
+    .project-card:nth-child(even) {
+        border-top-color: #2E7B6F;      /* teal accent on even cards */
+    }
+
+    .project-links {
+        justify-content: center;
+    }
+}
+
+/* ---- end project container rules ---- */
